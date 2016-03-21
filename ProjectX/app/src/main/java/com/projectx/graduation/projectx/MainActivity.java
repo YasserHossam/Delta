@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
 
         DigitsSession session2 = Digits.getSessionManager().getActiveSession();
-        if(!session2.isLoggedOutUser())
-        {
-            Toast.makeText(getApplicationContext(), "fe wa7ed" , Toast.LENGTH_LONG).show();
+        if(session2 != null) {
+            if (!session2.isLoggedOutUser()) {
+                Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
 
+            }
         }
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {

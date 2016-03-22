@@ -1,5 +1,6 @@
 package com.projectx.graduation.projectx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -49,17 +50,25 @@ public class MainActivity extends AppCompatActivity {
         if(session2 != null) {
             if (!session2.isLoggedOutUser()) {
                 Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, CollectUserInfo.class);
+
 
             }
         }
+        Intent intent = new Intent(this, CollectUserInfo.class);
+
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
                 // TODO: associate the session userID with your user model
 
+
+
                 Toast.makeText(getApplicationContext(), "Authentication successful for "
                         + phoneNumber, Toast.LENGTH_LONG).show();
+
+                go();
             }
 
             @Override
@@ -70,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void  go()
+    {
+        Intent intent = new Intent(this, CollectUserInfo.class);
+        startActivity(intent);
+
+    }
     public AuthCallback getAuthCallback() {
         return authCallback;
     }

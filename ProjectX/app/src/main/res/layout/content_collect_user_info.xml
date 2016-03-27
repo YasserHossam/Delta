@@ -12,34 +12,37 @@
     tools:context="com.projectx.graduation.projectx.CollectUserInfo"
     tools:showIn="@layout/activity_collect_user_info">
 
-    <TextView
+    <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="User Name"
         android:id="@+id/UserName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:hint="User Name"
         android:textSize="40dp"
         android:layout_marginTop="20dp" />
 
-    <TextView
+    <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="User E-mail"
-        android:id="@+id/textView"
-        android:textSize="40dp"
+        android:id="@+id/UserEmail"
         android:layout_below="@+id/UserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:hint="E-mail"
+        android:layout_marginTop="20dp"
+        android:textSize="40dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:id="@+id/button"
-        android:layout_below="@+id/textView"
+        android:text="Sign up"
+        android:id="@+id/SignUpBtn"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
-        android:background="#246dff" />
+        android:layout_marginTop="40dp"
+        android:background="#1a94ff"
+        android:textColor="#ffffff"
+        android:onClick="onSignUpPressed" />
+
 </RelativeLayout>

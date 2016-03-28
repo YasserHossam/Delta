@@ -59,7 +59,7 @@ public class Device {
     }
     public void setAndroidVersion(String androidVersion)
     {
-        this.androidVersion = androidVersion ; 
+        this.androidVersion = androidVersion ;
     }
 
 }

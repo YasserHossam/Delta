@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         DigitsSession session2 = Digits.getSessionManager().getActiveSession();
         if(session2 != null) {
             if (!session2.isLoggedOutUser()) {
-                Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), session2.getPhoneNumber() , Toast.LENGTH_LONG) ;
                 Intent intent = new Intent(this, CollectUserInfo.class);
 
 
@@ -66,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                 Toast.makeText(getApplicationContext(), "Authentication successful for "
-                        + phoneNumber, Toast.LENGTH_LONG).show();
+                        + session.getPhoneNumber().toString(), Toast.LENGTH_LONG).show();
 
-                go();
+                go(session.getPhoneNumber().toString());
             }
 
             @Override
@@ -79,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void  go()
+    public void  go(String phoneNumber)
     {
         Intent intent = new Intent(this, CollectUserInfo.class);
+        intent.putExtra("phoneNumber" , phoneNumber) ;
         startActivity(intent);
 
     }

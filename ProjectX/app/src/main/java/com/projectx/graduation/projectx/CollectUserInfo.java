@@ -36,35 +36,24 @@ EditText userName , Email ;
         setSupportActionBar(toolbar);
 
         userName = (EditText)findViewById(R.id.UserName) ;
+
         Email = (EditText)findViewById(R.id.UserEmail) ;
 
-     //String   phone_Number = getIntent().getExtras().getParcelable("phoneNumber") ;
-       // Log.e("E" , phone_Number);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Retrofit ret = new Retrofit.Builder().baseUrl("https://api.github.com/").addConverterFactory(GsonConverterFactory.create()).build() ;
 
-        ProjectXAPI api = ret.create(ProjectXAPI.class) ;
-        retrofit2.Call<gitmodel> call = api.getFeed("basil2style") ;
-        call.enqueue(new retrofit2.Callback<gitmodel>() {
-            @Override
-            public void onResponse(retrofit2.Call<gitmodel> call, retrofit2.Response<gitmodel> response) {
-                Log.e("zxc", response.body().getEmail().toString()) ;
-            }
-
-            @Override
-            public void onFailure(retrofit2.Call<gitmodel> call, Throwable t) {
-
-            }
-        });
 
     }
     public void onSignUpPressed(View view)
     {
         String user_name , user_email , phone_Number , device_ID  , android_version , device_model , manfu , device_type  ;
+
         user_name = userName.getText().toString() ;
+
         user_email = Email.getText().toString() ;
+
         Bundle bundle = getIntent().getExtras();
+
         if(bundle != null) {
             phone_Number = bundle.getString("phoneNumber");
 
@@ -78,7 +67,9 @@ EditText userName , Email ;
             android_version = Build.VERSION.RELEASE ;
 
             device_model = Build.MODEL ;
+
             manfu = Build.MANUFACTURER ;
+
             device_type = manfu +" "+ device_model ;
 
             Device device = new Device(device_ID , "appID" , device_type , android_version);

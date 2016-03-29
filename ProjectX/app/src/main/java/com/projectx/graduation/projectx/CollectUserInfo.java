@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
 import com.projectx.graduation.projectx.API.API;
 import com.projectx.graduation.projectx.API.Iresponse;
 import com.projectx.graduation.projectx.Models.Device;
@@ -65,7 +64,9 @@ EditText userName , Email ;
             device_type = manfu +" "+ device_model ;
 
             Device device = new Device(device_ID , "appID" , device_type , android_version);
+
             API api = API.getInstance() ;
+
             api.userSignUp(user , device , this);
 
 

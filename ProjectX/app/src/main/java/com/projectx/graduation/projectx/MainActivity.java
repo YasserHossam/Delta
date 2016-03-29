@@ -2,17 +2,15 @@ package com.projectx.graduation.projectx;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.digits.sdk.android.Digits;
+import com.projectx.graduation.projectx.UI.activity.CollectUserInfo;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import io.fabric.sdk.android.Fabric;

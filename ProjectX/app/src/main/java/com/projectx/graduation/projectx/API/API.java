@@ -2,6 +2,7 @@ package com.projectx.graduation.projectx.API;
 
 import android.util.Log;
 
+import com.projectx.graduation.projectx.Core.Network.SignUpUser;
 import com.projectx.graduation.projectx.Models.Device;
 import com.projectx.graduation.projectx.Models.User;
 import com.projectx.graduation.projectx.Models.gitmodel;
@@ -13,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by abdalrhmantaher on 3/28/16.
  */
-public class API  {
+public class API implements SignUpUser {
     private static API ourInstance = new API();
 
     public static API getInstance()

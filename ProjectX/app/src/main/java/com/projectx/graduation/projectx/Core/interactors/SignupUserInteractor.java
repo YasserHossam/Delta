@@ -8,6 +8,6 @@ import com.projectx.graduation.projectx.Core.interactors.base.Interactor;
 public interface SignupUserInteractor extends Interactor {
     public interface Callback
     {
-        void onSignUpFinished() ;
+      public   void onSignUpFinished(Object object) ;
     }
 }

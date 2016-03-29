@@ -26,7 +26,7 @@
             android:value="cd3dcd6438a7702f960913f23e8d9c8ec016e54d" />
 
         <activity
-            android:name=".CollectUserInfo"
+            android:name=".UI.activity.CollectUserInfo"
             android:label="@string/title_activity_collect_user_info"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

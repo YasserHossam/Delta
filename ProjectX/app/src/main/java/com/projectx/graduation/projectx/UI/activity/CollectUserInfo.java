@@ -1,4 +1,4 @@
-package com.projectx.graduation.projectx;
+package com.projectx.graduation.projectx.UI.activity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -10,13 +10,20 @@ import android.view.View;
 import android.widget.EditText;
 import com.projectx.graduation.projectx.API.API;
 import com.projectx.graduation.projectx.API.Iresponse;
+import com.projectx.graduation.projectx.Core.executor.Executor;
+import com.projectx.graduation.projectx.Core.executor.MainThread;
+import com.projectx.graduation.projectx.Core.executor.impl.ThreadExecutor;
 import com.projectx.graduation.projectx.Models.Device;
 import com.projectx.graduation.projectx.Models.User;
 import com.projectx.graduation.projectx.Models.gitmodel;
+import com.projectx.graduation.projectx.Presenters.CollectinfoPresenter;
+import com.projectx.graduation.projectx.Presenters.impl.CollectinfoPresenterImpl;
+import com.projectx.graduation.projectx.R;
+import com.projectx.graduation.projectx.Threading.MainThreadImpl;
 
-public class CollectUserInfo extends AppCompatActivity implements Iresponse {
+public class CollectUserInfo extends AppCompatActivity implements Iresponse , CollectinfoPresenter.View {
 EditText userName , Email ;
-
+    private  CollectinfoPresenter mPresenter ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +36,18 @@ EditText userName , Email ;
         Email = (EditText)findViewById(R.id.UserEmail) ;
 
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+      //  mPresenter.resume();
 
     }
 
@@ -65,9 +81,28 @@ EditText userName , Email ;
 
             Device device = new Device(device_ID , "appID" , device_type , android_version);
 
+           // api.userSignUp(user , device , this);
+
+            MainThread mm = MainThreadImpl.getInstance() ;
+
+            ThreadExecutor ee ;
+            try {
+                 ee = ThreadExecutor.getInstance() ;
+
+            }
+            catch (Exception e)
+            {
+                Log.e("E" , "error") ;
+
+            }
             API api = API.getInstance() ;
 
-            api.userSignUp(user , device , this);
+
+            mPresenter = new CollectinfoPresenterImpl(ThreadExecutor.getInstance() , MainThreadImpl.getInstance(),
+                    this , api , user_name , user_email , phone_Number , device_ID ,
+                    device_type , "" , android_version) ;
+
+            mPresenter.resume();
 
 
         }
@@ -88,6 +123,35 @@ EditText userName , Email ;
     public void onFaliure(String message)
     {
         Log.e("Error" , message) ;
+    }
+
+    @Override
+    public void showProgress()
+    {
+
+    }
+
+    @Override
+    public void hideProgress()
+    {
+
+    }
+
+    @Override
+    public void showError(String message)
+    {
+
+    }
+
+    @Override
+    public void onFinish(Object object)
+    {
+        gitmodel asd = (gitmodel) object ;
+        Log.e("E" , asd.getName().toString());
+        Log.e("E", asd.getEmail().toString());
+
+
+
     }
 
 }

@@ -3,29 +3,19 @@ package com.projectx.graduation.projectx;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import com.projectx.graduation.projectx.API.ProjectXAPI;
+
+import com.projectx.graduation.projectx.API.API;
+import com.projectx.graduation.projectx.API.Iresponse;
 import com.projectx.graduation.projectx.Models.Device;
 import com.projectx.graduation.projectx.Models.User;
 import com.projectx.graduation.projectx.Models.gitmodel;
-import java.io.File;
-import java.util.List;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-import retrofit.converter.GsonConverter;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CollectUserInfo extends AppCompatActivity {
+public class CollectUserInfo extends AppCompatActivity implements Iresponse {
 EditText userName , Email ;
 
     @Override
@@ -43,7 +33,9 @@ EditText userName , Email ;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
     }
+
     public void onSignUpPressed(View view)
     {
         String user_name , user_email , phone_Number , device_ID  , android_version , device_model , manfu , device_type  ;
@@ -73,13 +65,28 @@ EditText userName , Email ;
             device_type = manfu +" "+ device_model ;
 
             Device device = new Device(device_ID , "appID" , device_type , android_version);
+            API api = API.getInstance() ;
+            api.userSignUp(user , device , this);
 
 
         }
 
+    }
+    /*
+        * iresponse methods .
+     */
+    @Override
+    public void onSuccess(Object object)
+    {
+        gitmodel mod = (gitmodel)object ;
+        Log.e("E" , mod.getName()) ;
+        Log.e("E" , mod.getEmail()) ;
 
-
-
+    }
+    @Override
+    public void onFaliure(String message)
+    {
+        Log.e("Error" , message) ;
     }
 
 }

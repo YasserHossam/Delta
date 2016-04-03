@@ -1,13 +1,11 @@
 package com.projectx.graduation.projectx.API;
 
-import android.util.Log;
-
+import com.projectx.graduation.projectx.Core.Network.Iresponse;
 import com.projectx.graduation.projectx.Core.Network.SignUpUser;
-import com.projectx.graduation.projectx.Models.Device;
-import com.projectx.graduation.projectx.Models.User;
-import com.projectx.graduation.projectx.Models.gitmodel;
+import com.projectx.graduation.projectx.Core.Models.Device;
+import com.projectx.graduation.projectx.Core.Models.User;
+import com.projectx.graduation.projectx.Core.Models.gitmodel;
 
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

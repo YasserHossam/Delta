@@ -1,4 +1,4 @@
-package com.projectx.graduation.projectx.API;
+package com.projectx.graduation.projectx.Core.Network;
 
 /**
  * Created by abdalrhmantaher on 3/29/16.

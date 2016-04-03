@@ -1,8 +1,6 @@
 package com.projectx.graduation.projectx.API;
 
-import com.projectx.graduation.projectx.Models.gitmodel;
-
-import java.util.List;
+import com.projectx.graduation.projectx.Core.Models.gitmodel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

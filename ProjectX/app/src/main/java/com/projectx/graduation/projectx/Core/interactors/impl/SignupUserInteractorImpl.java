@@ -1,15 +1,13 @@
 package com.projectx.graduation.projectx.Core.interactors.impl;
 
-import android.net.Network;
-
-import com.projectx.graduation.projectx.API.Iresponse;
+import com.projectx.graduation.projectx.Core.Network.Iresponse;
 import com.projectx.graduation.projectx.Core.Network.SignUpUser;
 import com.projectx.graduation.projectx.Core.executor.Executor;
 import com.projectx.graduation.projectx.Core.executor.MainThread;
 import com.projectx.graduation.projectx.Core.interactors.SignupUserInteractor;
 import com.projectx.graduation.projectx.Core.interactors.base.AbstractInteractor;
-import com.projectx.graduation.projectx.Models.Device;
-import com.projectx.graduation.projectx.Models.User;
+import com.projectx.graduation.projectx.Core.Models.Device;
+import com.projectx.graduation.projectx.Core.Models.User;
 
 /**
  * Created by abdalrhmantaher on 3/29/16.
@@ -42,22 +40,20 @@ public class SignupUserInteractorImpl extends AbstractInteractor implements Sign
         mMainThread.post(new Runnable() {
             @Override
             public void run() {
-                mCallback.onSignUpFinished(object);
+                mCallback.onSignUpSuccess(object);
             }
         });
 
     }
 
-    public void onFaliure(String message)
+    public void onFaliure(final String message)
     {
-
-
-    }
-
-    @Override
-    public void execute()
-    {
-        run();
+        mMainThread.post(new Runnable() {
+            @Override
+            public void run() {
+                mCallback.onSignUpFaliure(message);
+            }
+        });
     }
 
     @Override

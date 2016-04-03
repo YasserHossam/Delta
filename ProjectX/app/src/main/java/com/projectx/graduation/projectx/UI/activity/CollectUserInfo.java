@@ -9,19 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import com.projectx.graduation.projectx.API.API;
-import com.projectx.graduation.projectx.API.Iresponse;
-import com.projectx.graduation.projectx.Core.executor.Executor;
 import com.projectx.graduation.projectx.Core.executor.MainThread;
 import com.projectx.graduation.projectx.Core.executor.impl.ThreadExecutor;
-import com.projectx.graduation.projectx.Models.Device;
-import com.projectx.graduation.projectx.Models.User;
-import com.projectx.graduation.projectx.Models.gitmodel;
+import com.projectx.graduation.projectx.Core.Models.Device;
+import com.projectx.graduation.projectx.Core.Models.User;
+import com.projectx.graduation.projectx.Core.Models.gitmodel;
 import com.projectx.graduation.projectx.Presenters.CollectinfoPresenter;
 import com.projectx.graduation.projectx.Presenters.impl.CollectinfoPresenterImpl;
 import com.projectx.graduation.projectx.R;
 import com.projectx.graduation.projectx.Threading.MainThreadImpl;
 
-public class CollectUserInfo extends AppCompatActivity implements Iresponse , CollectinfoPresenter.View {
+public class CollectUserInfo extends AppCompatActivity implements  CollectinfoPresenter.View {
 EditText userName , Email ;
     private  CollectinfoPresenter mPresenter ;
     @Override
@@ -108,22 +106,7 @@ EditText userName , Email ;
         }
 
     }
-    /*
-        * iresponse methods .
-     */
-    @Override
-    public void onSuccess(Object object)
-    {
-        gitmodel mod = (gitmodel)object ;
-        Log.e("E" , mod.getName()) ;
-        Log.e("E" , mod.getEmail()) ;
 
-    }
-    @Override
-    public void onFaliure(String message)
-    {
-        Log.e("Error" , message) ;
-    }
 
     @Override
     public void showProgress()
@@ -140,7 +123,7 @@ EditText userName , Email ;
     @Override
     public void showError(String message)
     {
-
+        Log.e("ERROR" , message) ;
     }
 
     @Override

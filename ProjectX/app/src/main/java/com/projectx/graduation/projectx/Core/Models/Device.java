@@ -1,4 +1,4 @@
-package com.projectx.graduation.projectx.Models;
+package com.projectx.graduation.projectx.Core.Models;
 
 import com.google.gson.annotations.Expose;
 

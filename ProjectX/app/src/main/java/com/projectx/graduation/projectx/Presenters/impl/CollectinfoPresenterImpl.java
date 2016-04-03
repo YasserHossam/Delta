@@ -74,9 +74,15 @@ public class CollectinfoPresenterImpl extends AbstractPresenter implements Colle
     }
 
     @Override
-    public void onSignUpFinished(Object object)
+    public void onSignUpSuccess(Object object)
     {
         mView.onFinish(object);
+    }
+
+    @Override
+    public void onSignUpFaliure(String message)
+    {
+        onError(message);
     }
 
 }

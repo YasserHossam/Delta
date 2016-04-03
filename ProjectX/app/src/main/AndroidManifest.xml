@@ -34,6 +34,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.projectx.graduation.projectx.MainActivity" />
         </activity>
+        <activity
+            android:name=".UI.activity.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:parentActivityName=".UI.activity.CollectUserInfo"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectx.graduation.projectx.UI.activity.CollectUserInfo" />
+        </activity>
     </application>
 
 </manifest>

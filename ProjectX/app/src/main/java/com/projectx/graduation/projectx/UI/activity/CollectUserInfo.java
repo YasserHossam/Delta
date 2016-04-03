@@ -1,5 +1,6 @@
 package com.projectx.graduation.projectx.UI.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -46,6 +47,13 @@ EditText userName , Email ;
     {
         super.onResume();
       //  mPresenter.resume();
+
+    }
+
+    @Override
+    public  void  onBackPressed()
+    {
+
 
     }
 
@@ -133,7 +141,8 @@ EditText userName , Email ;
         Log.e("E" , asd.getName().toString());
         Log.e("E", asd.getEmail().toString());
 
-
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
 
     }
 

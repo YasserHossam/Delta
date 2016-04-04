@@ -6,7 +6,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.projectx.graduation.projectx.Core.Models.Application;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -39,6 +41,8 @@ public class packageExtractor {
                 apps.add(app);
             }
         }
+        HashMap<String , Object> map = new HashMap<String, Object>() ;
+        map.put("app" , apps) ;
         return apps  ;
     }
 }

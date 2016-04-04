@@ -2,6 +2,7 @@ package com.projectx.graduation.projectx.UI.activity;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
@@ -34,12 +35,14 @@ public class packageExtractor {
             PackageInfo p = packs.get(i) ;
             if(p.versionName == null)
                 continue;
+            if((p.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                Application app = new Application();
+                app.setApplicationName(p.applicationInfo.loadLabel(manager).toString());
+                app.setPackageName(p.packageName);
+                app.setVersionNumber(p.versionName);
 
-            Application app = new Application() ;
-            app.setApplicationName(p.applicationInfo.loadLabel(manager).toString());
-            app.setPackageName(p.packageName);
-            app.setVersionNumber(p.versionName) ;
-            apps.add(app) ;
+                apps.add(app);
+            }
         }
         return apps  ;
     }

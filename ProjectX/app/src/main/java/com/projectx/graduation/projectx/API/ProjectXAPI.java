@@ -9,7 +9,7 @@ import retrofit2.http.GET;
  * Created by abdalrhmantaher on 3/27/16.
  */
 public interface ProjectXAPI {
-    @GET("users/{user}")
+    @GET("userse/{user}")
     public Call<gitmodel> getFeed(@retrofit2.http.Path("user") String user);
 
 }

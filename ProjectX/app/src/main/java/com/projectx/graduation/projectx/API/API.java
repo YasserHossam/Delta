@@ -6,6 +6,8 @@ import com.projectx.graduation.projectx.Core.Models.Device;
 import com.projectx.graduation.projectx.Core.Models.User;
 import com.projectx.graduation.projectx.Core.Models.gitmodel;
 
+import java.io.IOException;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -45,7 +47,17 @@ public class API implements SignUpUser {
             @Override
             public void onResponse(retrofit2.Call<gitmodel> call, retrofit2.Response<gitmodel> response)
             {
+                if(response.isSuccessful())
                 _callback.onSuccess(response.body());
+                else {
+                 try {
+                     _callback.onFaliure(response.errorBody().string());
+                 }
+                 catch (IOException e)
+                 {
+
+                 }
+                }
             }
 
             @Override

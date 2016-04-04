@@ -2,7 +2,12 @@ package com.projectx.graduation.projectx.TopLayar.API;
 
 import com.projectx.graduation.projectx.Core.Models.gitmodel;
 
+import java.util.HashMap;
+
+import okhttp3.ResponseBody;
+import retrofit2.http.POST;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 
 /**
@@ -11,5 +16,8 @@ import retrofit2.http.GET;
 public interface ProjectXAPI {
     @GET("users/{user}")
     public Call<gitmodel> getFeed(@retrofit2.http.Path("user") String user);
+
+    @POST("api/usersdevices/")
+    public Call<ResponseBody> register(@Body HashMap<String , Object>body) ;
 
 }

@@ -9,6 +9,9 @@ import com.projectx.graduation.projectx.Core.interactors.base.AbstractInteractor
 import com.projectx.graduation.projectx.Core.Models.Device;
 import com.projectx.graduation.projectx.Core.Models.User;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 /**
  * Created by abdalrhmantaher on 3/29/16.
  */
@@ -59,7 +62,30 @@ public class SignupUserInteractorImpl extends AbstractInteractor implements Sign
     @Override
     public void run()
     {
-        msignUpUser.userSignUp(user , device , this);
 
+        HashMap<String,Object> map = buildJSONObject() ;
+        msignUpUser.userSignUp2(map, this);
+
+
+    }
+
+    private HashMap<String , Object> buildJSONObject()
+    {
+        //   msignUpUser.userSignUp(user, device, this);
+        HashMap<String , Object> map = new HashMap<String, Object>() ;
+        map.put("DeviceType" , device.getDeviceType()) ;
+        map.put("AndroidVersion" , device.getAndroidVersion()) ;
+        map.put("registeration_id"  , device.getDeviceID()) ;
+        HashMap<String,Object> userProfile = new HashMap<String, Object>() ;
+        userProfile.put("phone_number" , user.getPhoneNumber()) ;
+        HashMap<String , Object> userMap = new HashMap<String,Object>() ;
+        userMap.put("email" , user.getUserEmail()) ;
+       /*to be deleted*/ userMap.put("password" , "ljljljljgkgkbmjgv") ;
+        userMap.put("username", user.getUserName()) ;
+       /*to be deleted*/ userMap.put("first_name" , "alaa") ;
+        /*to be deleted*/userMap.put("last_name" , "kkkk") ;
+        userProfile.put("user" , userMap) ;
+        map.put("user_profile" , userProfile) ;
+        return map ;
     }
 }

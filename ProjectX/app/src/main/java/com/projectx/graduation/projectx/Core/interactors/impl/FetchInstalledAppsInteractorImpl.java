@@ -63,7 +63,7 @@ public class FetchInstalledAppsInteractorImpl extends AbstractInteractor impleme
         HashMap<String,Object> JSON = new HashMap<String, Object>() ;
 
         JSON.put("apps" , applications) ;
-        
+
     }
 }
 

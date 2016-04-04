@@ -1,18 +1,17 @@
-package com.projectx.graduation.projectx.Presenters.impl;
+package com.projectx.graduation.projectx.middleLayar.Presenters.impl;
 
 import com.projectx.graduation.projectx.Core.Network.SignUpUser;
 import com.projectx.graduation.projectx.Core.executor.Executor;
 import com.projectx.graduation.projectx.Core.executor.MainThread;
 import com.projectx.graduation.projectx.Core.interactors.SignupUserInteractor;
 import com.projectx.graduation.projectx.Core.interactors.impl.SignupUserInteractorImpl;
-import com.projectx.graduation.projectx.Presenters.CollectinfoPresenter;
-import com.projectx.graduation.projectx.Presenters.base.AbstractPresenter;
-import com.projectx.graduation.projectx.UI.activity.CollectUserInfo;
+import com.projectx.graduation.projectx.middleLayar.Presenters.CollectinfoPresenter;
+import com.projectx.graduation.projectx.middleLayar.Presenters.base.AbstractPresenter;
 
 /**
  * Created by abdalrhmantaher on 3/29/16.
  */
-public class CollectinfoPresenterImpl extends AbstractPresenter implements CollectinfoPresenter , SignupUserInteractor.Callback {
+public class CollectinfoPresenterImpl extends AbstractPresenter implements CollectinfoPresenter, SignupUserInteractor.Callback {
 
     private CollectinfoPresenter.View mView ;
 

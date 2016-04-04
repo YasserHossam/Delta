@@ -1,15 +1,10 @@
-package com.projectx.graduation.projectx.UI.activity;
+package com.projectx.graduation.projectx.TopLayar.Helper;
 
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-
-import android.os.Bundle;
-
 import com.projectx.graduation.projectx.Core.Models.Application;
-
 import java.util.ArrayList;
 import java.util.List;
 

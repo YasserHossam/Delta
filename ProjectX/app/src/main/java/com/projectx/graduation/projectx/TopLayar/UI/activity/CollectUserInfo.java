@@ -1,4 +1,4 @@
-package com.projectx.graduation.projectx.UI.activity;
+package com.projectx.graduation.projectx.TopLayar.UI.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,16 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import com.projectx.graduation.projectx.API.API;
+import com.projectx.graduation.projectx.TopLayar.API.API;
 import com.projectx.graduation.projectx.Core.executor.MainThread;
 import com.projectx.graduation.projectx.Core.executor.impl.ThreadExecutor;
 import com.projectx.graduation.projectx.Core.Models.Device;
 import com.projectx.graduation.projectx.Core.Models.User;
 import com.projectx.graduation.projectx.Core.Models.gitmodel;
-import com.projectx.graduation.projectx.Presenters.CollectinfoPresenter;
-import com.projectx.graduation.projectx.Presenters.impl.CollectinfoPresenterImpl;
+import com.projectx.graduation.projectx.middleLayar.Presenters.CollectinfoPresenter;
+import com.projectx.graduation.projectx.middleLayar.Presenters.impl.CollectinfoPresenterImpl;
 import com.projectx.graduation.projectx.R;
-import com.projectx.graduation.projectx.Threading.MainThreadImpl;
+import com.projectx.graduation.projectx.TopLayar.Threading.MainThreadImpl;
 
 public class CollectUserInfo extends AppCompatActivity implements  CollectinfoPresenter.View {
 EditText userName , Email ;

@@ -1,7 +1,7 @@
-package com.projectx.graduation.projectx.Presenters;
+package com.projectx.graduation.projectx.middleLayar.Presenters;
 
-import com.projectx.graduation.projectx.Presenters.base.BasePresenter;
-import com.projectx.graduation.projectx.UI.BaseView;
+import com.projectx.graduation.projectx.middleLayar.Presenters.base.BasePresenter;
+import com.projectx.graduation.projectx.TopLayar.UI.BaseView;
 
 /**
  * Created by abdalrhmantaher on 3/29/16.

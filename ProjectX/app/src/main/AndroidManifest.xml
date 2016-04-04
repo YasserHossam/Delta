@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".TopLayar.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,22 +26,22 @@
             android:value="cd3dcd6438a7702f960913f23e8d9c8ec016e54d" />
 
         <activity
-            android:name=".UI.activity.CollectUserInfo"
+            android:name=".TopLayar.UI.activity.CollectUserInfo"
             android:label="@string/title_activity_collect_user_info"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".TopLayar.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.projectx.graduation.projectx.MainActivity" />
+                android:value=".TopLayar.MainActivity" />
         </activity>
         <activity
-            android:name=".UI.activity.HomeActivity"
+            android:name=".TopLayar.UI.activity.HomeActivity"
             android:label="@string/title_activity_home"
-            android:parentActivityName=".UI.activity.CollectUserInfo"
+            android:parentActivityName=".TopLayar.UI.activity.CollectUserInfo"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.projectx.graduation.projectx.UI.activity.CollectUserInfo" />
+                android:value=".TopLayar.UI.activity.CollectUserInfo" />
         </activity>
     </application>
 

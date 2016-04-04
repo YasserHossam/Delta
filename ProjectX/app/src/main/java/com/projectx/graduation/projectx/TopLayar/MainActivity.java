@@ -1,4 +1,4 @@
-package com.projectx.graduation.projectx;
+package com.projectx.graduation.projectx.TopLayar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.digits.sdk.android.Digits;
-import com.projectx.graduation.projectx.UI.activity.CollectUserInfo;
+import com.projectx.graduation.projectx.R;
+import com.projectx.graduation.projectx.TopLayar.UI.activity.CollectUserInfo;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import io.fabric.sdk.android.Fabric;

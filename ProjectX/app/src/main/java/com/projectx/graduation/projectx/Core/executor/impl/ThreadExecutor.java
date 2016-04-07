@@ -19,6 +19,7 @@ public class ThreadExecutor implements Executor {
     private static final int KEEP_ALIVE_TIME = 120;
     private static final TimeUnit                TIME_UNIT       = TimeUnit.SECONDS;
     private static final BlockingQueue<Runnable> WORK_QUEUE      = new LinkedBlockingQueue<Runnable>();
+    private static boolean requiresBackground = true ;
 
     private ThreadPoolExecutor mThreadPoolExecutor;
 
@@ -38,14 +39,21 @@ public class ThreadExecutor implements Executor {
     @Override
     public void execute(final AbstractInteractor interactor)
     {
-        mThreadPoolExecutor.submit(new Runnable() {
-            @Override
-            public void run() {
+        if(requiresBackground) {
+            mThreadPoolExecutor.submit(new Runnable() {
+                @Override
+                public void run() {
 
-                interactor.run();
+                    interactor.run();
 
-                interactor.onFinished();
-            }
-        });
+                    interactor.onFinished();
+
+                }
+            });
+        }
+        else
+        {
+            interactor.run();
+        }
     }
 }

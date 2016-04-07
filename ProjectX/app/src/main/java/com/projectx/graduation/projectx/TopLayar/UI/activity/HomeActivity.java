@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
 
         packageExtractor PE = new packageExtractor(getBaseContext()) ;
         ArrayList<Application> apps = PE.getInstalledApps() ;
-        Log.e("Error" , "yooo") ;
+
     }
 
 }

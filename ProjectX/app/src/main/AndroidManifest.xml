@@ -43,6 +43,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TopLayar.UI.activity.CollectUserInfo" />
         </activity>
+        <service
+            android:name=".TopLayar.Services.FetchApplications"
+            android:exported="false"/>
     </application>
 
 </manifest>

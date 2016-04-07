@@ -57,7 +57,7 @@ public void userSignUp2(HashMap<String , Object> map , Iresponse response)
             /*add callbacks*/
             if(response.isSuccessful())
             {
-                
+
             }
             else
             {

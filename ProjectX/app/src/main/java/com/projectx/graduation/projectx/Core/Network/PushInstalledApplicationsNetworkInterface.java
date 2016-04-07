@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Created by abdalrhmantaher on 4/4/16.
  */
-public interface PushInstalledApplications {
+public interface PushInstalledApplicationsNetworkInterface {
     public  void pushInstalledApps(HashMap<String , Object> applications , Iresponse response) ;
 
 }

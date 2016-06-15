@@ -7,10 +7,12 @@ import com.projectx.graduation.projectx.Core.executor.MainThread;
 
 import android.os.Handler;
 
+import java.io.Serializable;
+
 /**
  * Created by abdalrhmantaher on 3/29/16.
  */
-public class MainThreadImpl implements MainThread {
+public class MainThreadImpl implements MainThread  {
 
     private static MainThreadImpl ourInstance = new MainThreadImpl();
 

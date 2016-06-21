@@ -66,7 +66,6 @@ public class SignupUserInteractorImpl extends AbstractInteractor implements Sign
         HashMap<String,Object> map = buildJSONObject() ;
         msignUpUser.userSignUp2(map, this);
 
-
     }
 
     private HashMap<String , Object> buildJSONObject()

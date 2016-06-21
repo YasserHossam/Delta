@@ -42,21 +42,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new TwitterCore(authConfig), new Digits());
+    //    TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+      //  Fabric.with(this, new TwitterCore(authConfig), new Digits());
 
-        DigitsSession session2 = Digits.getSessionManager().getActiveSession();
-        if(session2 != null) {
-            if (!session2.isLoggedOutUser()) {
+     //   DigitsSession session2 = Digits.getSessionManager().getActiveSession();
+       // if(session2 != null) {
+         //   if (!session2.isLoggedOutUser()) {
                // Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), session2.getPhoneNumber() , Toast.LENGTH_LONG) ;
-                Intent intent = new Intent(this, CollectUserInfo.class);
+           //     Toast.makeText(getApplicationContext(), session2.getPhoneNumber() , Toast.LENGTH_LONG) ;
+             //   Intent intent = new Intent(this, CollectUserInfo.class);
 
+//
+  //          }
+        //}
+        //Intent intent = new Intent(this, CollectUserInfo.class);
 
-            }
-        }
-        Intent intent = new Intent(this, CollectUserInfo.class);
-
+        /*
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Digits", "Sign in with Digits failure", exception);
             }
         });
-
+*/
     }
 
     public void  go(String phoneNumber)

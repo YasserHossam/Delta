@@ -4,30 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.digits.sdk.android.Digits;
 import com.projectx.graduation.projectx.R;
 import com.projectx.graduation.projectx.TopLayar.UI.activity.CollectUserInfo;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterCore;
-import io.fabric.sdk.android.Fabric;
-import com.digits.sdk.android.AuthCallback;
-import com.digits.sdk.android.DigitsAuthButton;
-import com.digits.sdk.android.DigitsException;
-import com.digits.sdk.android.DigitsSession;
+import com.alexkasko.delta.DirDeltaPatcher;
+
 
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private AuthCallback authCallback ;
 
-    private static final String TWITTER_KEY = "VCRYx3WDx2z2CyTtwUTQBjRuD";
-    private static final String TWITTER_SECRET = "YChhMVQsrHzi5rFLFIndzGXE3cWY3IG05syxQ6v11mp0WdBew7";
 
 
     @Override
@@ -42,42 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //    TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-      //  Fabric.with(this, new TwitterCore(authConfig), new Digits());
-
-     //   DigitsSession session2 = Digits.getSessionManager().getActiveSession();
-       // if(session2 != null) {
-         //   if (!session2.isLoggedOutUser()) {
-               // Toast.makeText(getApplicationContext(), "fe wa7ed", Toast.LENGTH_LONG).show();
-           //     Toast.makeText(getApplicationContext(), session2.getPhoneNumber() , Toast.LENGTH_LONG) ;
-             //   Intent intent = new Intent(this, CollectUserInfo.class);
-
-//
-  //          }
-        //}
-        //Intent intent = new Intent(this, CollectUserInfo.class);
-
-        /*
-        DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
-        digitsButton.setCallback(new AuthCallback() {
-            @Override
-            public void success(DigitsSession session, String phoneNumber) {
-                // TODO: associate the session userID with your user model
-
-
-
-                Toast.makeText(getApplicationContext(), "Authentication successful for "
-                        + session.getPhoneNumber().toString(), Toast.LENGTH_LONG).show();
-
-                go(session.getPhoneNumber().toString());
-            }
-
-            @Override
-            public void failure(DigitsException exception) {
-                Log.d("Digits", "Sign in with Digits failure", exception);
-            }
-        });
-*/
     }
 
     public void  go(String phoneNumber)
@@ -87,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public AuthCallback getAuthCallback() {
-        return authCallback;
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by abdalrhmantaher on 6/22/16.
@@ -67,12 +68,14 @@ public class ExtractAPKInteractorImpl extends AbstractInteractor implements Extr
             outputStream.flush();
             outputStream.close();
 
+            String path = appDir.getAbsolutePath() ;
+            mCallBack.onSuccess((Object) path);
 
 
         }
         catch (Exception e)
         {
-
+            mCallBack.onFaliure(e.getMessage());
         }
 
 

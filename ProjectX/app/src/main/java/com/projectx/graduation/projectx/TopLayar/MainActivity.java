@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.projectx.graduation.projectx.R;
 import com.projectx.graduation.projectx.TopLayar.UI.activity.CollectUserInfo;
+import com.alexkasko.delta.DirDeltaPatcher;
 
 
 

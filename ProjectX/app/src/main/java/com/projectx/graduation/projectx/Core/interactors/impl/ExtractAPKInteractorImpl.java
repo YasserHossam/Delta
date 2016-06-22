@@ -27,7 +27,7 @@ public class ExtractAPKInteractorImpl extends AbstractInteractor implements Extr
         packageName = pName ;
         apkPaths = pahts  ;
         this.appPath = appPath ;
-        mCallBack = callback
+        mCallBack = callback ;
     }
 
     @Override

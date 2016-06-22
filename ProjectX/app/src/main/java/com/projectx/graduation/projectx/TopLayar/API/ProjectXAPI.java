@@ -22,4 +22,7 @@ public interface ProjectXAPI {
 
     @POST("api/installedApps/")
     public Call<ResponseBody> pushInstalledApps(@Body HashMap<String, Object> body);
+
+    @POST("api/delete-apps/")
+    public Call<ResponseBody> removeDeltedApps(@Body HashMap<String,Object> body);
 }

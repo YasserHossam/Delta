@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.projectx.graduation.projectx.Core.Network.Iresponse;
 import com.projectx.graduation.projectx.Core.Network.PushInstalledApplicationsNetworkInterface;
+import com.projectx.graduation.projectx.Core.Network.RemoveDeletedAppsNetworkInterface;
 import com.projectx.graduation.projectx.Core.Network.SignUpUser;
 import com.projectx.graduation.projectx.Core.Models.Device;
 import com.projectx.graduation.projectx.Core.Models.User;
@@ -23,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by abdalrhmantaher on 3/28/16.
  */
 public class API implements SignUpUser,PushInstalledApplicationsNetworkInterface
+                            ,RemoveDeletedAppsNetworkInterface
 {
     private static API ourInstance = new API();
 
@@ -118,9 +120,9 @@ public class API implements SignUpUser,PushInstalledApplicationsNetworkInterface
     }
 
     @Override
-    public void pushInstalledApps(HashMap<String, Object> applications, Iresponse response)
+    public void pushInstalledApps(HashMap<String, Object> requestBody, Iresponse response)
     {
-        retrofit2.Call<ResponseBody> call = projectXAPI.pushInstalledApps(applications);
+        retrofit2.Call<ResponseBody> call = projectXAPI.pushInstalledApps(requestBody);
 
         final Iresponse _callback = response;
 
@@ -129,11 +131,11 @@ public class API implements SignUpUser,PushInstalledApplicationsNetworkInterface
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
             {
-            /*add callbacks*/
                 if (response.isSuccessful())
                 {
                     _callback.onSuccess(response.body());
-                } else
+                }
+                else
                 {
                     try
                     {
@@ -148,7 +150,42 @@ public class API implements SignUpUser,PushInstalledApplicationsNetworkInterface
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t)
             {
-            /*add callbacks*/
+                _callback.onFaliure("Request couldn't be sent");
+            }
+        });
+    }
+
+    @Override
+    public void removeDeletedApps(HashMap<String, Object> requestBody, Iresponse response)
+    {
+        retrofit2.Call<ResponseBody> call = projectXAPI.removeDeltedApps(requestBody);
+
+        final Iresponse _callback = response;
+
+        call.enqueue(new Callback<ResponseBody>()
+        {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
+            {
+                if (response.isSuccessful())
+                {
+                    _callback.onSuccess(response.body());
+                }
+                else
+                {
+                    try
+                    {
+                        _callback.onFaliure(response.errorBody().string());
+                    } catch (IOException e)
+                    {
+                        _callback.onFaliure("Can't Send Error Body");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t)
+            {
                 _callback.onFaliure("Request couldn't be sent");
             }
         });

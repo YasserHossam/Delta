@@ -20,4 +20,6 @@ public interface ProjectXAPI {
     @POST("api/usersdevices/")
     public Call<ResponseBody> register(@Body HashMap<String , Object>body) ;
 
+    @POST("api/installedApps/")
+    public Call<ResponseBody> pushInstalledApps(@Body HashMap<String, Object> body);
 }

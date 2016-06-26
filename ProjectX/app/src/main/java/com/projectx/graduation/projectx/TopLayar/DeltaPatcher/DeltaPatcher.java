@@ -1,6 +1,7 @@
 package com.projectx.graduation.projectx.TopLayar.DeltaPatcher;
 
 import com.alexkasko.delta.DirDeltaPatcher;
+import com.projectx.graduation.projectx.Core.DeltaPatcher.DeltaPatcherInterface;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +19,7 @@ import android.net.Uri;
 /**
  * Created by abdalrhmantaher on 6/22/16.
  */
-public class DeltaPatcher implements PatcherInterface{
+public class DeltaPatcher implements DeltaPatcherInterface{
     public Context context ;
     DeltaPatcher(Context con)
     {
@@ -34,13 +35,13 @@ public class DeltaPatcher implements PatcherInterface{
         }
         catch (IOException e)
         {
-
+            return null ;
         }
 
         return APKPath ;
     }
 
-    public void installApplication(String APKPath)
+    public boolean installApplication(String APKPath)
     {
         File APKDir = new File (APKPath) ;
         File APKFile = APKDir.listFiles()[0] ;
@@ -67,9 +68,10 @@ public class DeltaPatcher implements PatcherInterface{
         }
         catch (IOException e)
         {
-
+            return false ;
 
         }
+        return true ;
 
     }
 }

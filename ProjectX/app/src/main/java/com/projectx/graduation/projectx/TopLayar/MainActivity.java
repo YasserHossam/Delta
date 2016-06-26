@@ -2,8 +2,10 @@ package com.projectx.graduation.projectx.TopLayar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,14 +13,15 @@ import com.projectx.graduation.projectx.R;
 import com.projectx.graduation.projectx.TopLayar.UI.activity.CollectUserInfo;
 import com.alexkasko.delta.DirDeltaPatcher;
 
-
+import java.io.File;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
 
-
+    String extractioPath ;
+    String PatchPath ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,6 +30,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        extractioPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/ProjXAPK/" ;
+        PatchPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/ProjXPatch/" ;
+
+        File APKDir = new File(extractioPath) ;
+        File PatchDir = new File(PatchPath);
+       try {
+            if(!APKDir.exists())
+                APKDir.mkdirs() ;
+
+           if(!PatchDir.exists())
+               PatchDir.mkdirs();
+
+       }
+       catch (Exception e)
+       {
+           Log.wtf("TT:" , e.getMessage()) ;
+       }
 
 
 

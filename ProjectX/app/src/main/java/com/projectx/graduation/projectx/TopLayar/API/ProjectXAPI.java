@@ -24,5 +24,8 @@ public interface ProjectXAPI {
     public Call<ResponseBody> pushInstalledApps(@Body HashMap<String, Object> body);
 
     @POST("api/delete-apps/")
-    public Call<ResponseBody> removeDeltedApps(@Body HashMap<String,Object> body);
+    public Call<ResponseBody> removeDeletedApps(@Body HashMap<String,Object> body);
+
+    @POST("api/usersdevices/")
+    public Call<ResponseBody> registerDevice(@Body HashMap<String , Object>body);
 }

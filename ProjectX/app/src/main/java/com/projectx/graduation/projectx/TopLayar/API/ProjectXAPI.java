@@ -28,4 +28,8 @@ public interface ProjectXAPI {
 
     @POST("api/usersdevices/")
     public Call<ResponseBody> registerDevice(@Body HashMap<String , Object>body);
+
+    //Test Retrofit
+    @POST("user/login")
+    public Call<ResponseBody> testRetrofit(@Body HashMap<String,Object> body);
 }

@@ -1,5 +1,7 @@
 package com.projectx.graduation.projectx.TopLayar.API;
 
+import android.util.Log;
+
 import com.projectx.graduation.projectx.Core.Network.Iresponse;
 import com.projectx.graduation.projectx.Core.Network.PushInstalledApplicationsNetworkInterface;
 import com.projectx.graduation.projectx.Core.Network.RegisterDeviceNetworkInterface;
@@ -222,6 +224,49 @@ public class API implements SignUpUser,PushInstalledApplicationsNetworkInterface
             public void onFailure(Call<ResponseBody> call, Throwable t)
             {
                 _callback.onFaliure("Request couldn't be sent");
+            }
+        });
+    }
+
+    public void testRetrofit(HashMap<String,Object> requestBody)
+    {
+        retrofit = new Retrofit.Builder().baseUrl("http://theelitehouse.info/").addConverterFactory(GsonConverterFactory.create()).build();
+        projectXAPI = retrofit.create(ProjectXAPI.class);
+        retrofit2.Call<ResponseBody> call = projectXAPI.testRetrofit(requestBody);
+
+        call.enqueue(new Callback<ResponseBody>()
+        {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
+            {
+                if (response.isSuccessful())
+                {
+                    try
+                    {
+                        Log.e("com.projectx.graduation","Success "+response.body().string());
+                    }
+                    catch (Exception exc)
+                    {
+                        Log.e("com.projectx.graduation","Can't Convert ResponseBody to string");
+                    }
+
+                }
+                else
+                {
+                    try
+                    {
+                        Log.e("com.projectx.graduation",response.errorBody().string());
+                    } catch (IOException e)
+                    {
+                        Log.e("com.projectx.graduation","Can't Send Error Body");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t)
+            {
+                Log.e("com.projectx.graduation","Request couldn't be sent");
             }
         });
     }
